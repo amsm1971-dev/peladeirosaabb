@@ -1,1 +1,1 @@
-﻿web:gunicorn futebol_sorteio:app
+﻿web: gunicorn futebol_sorteio.py:app
