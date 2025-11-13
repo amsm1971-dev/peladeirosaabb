@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Jogador</title>
+</head>
+<body>
+    <h2>Editar Jogador</h2>
+    <form method="POST">
+        Nome: <input type="text" name="nome" value="{{ jogador[0] }}" required><br>
+        Posição 1: <input type="text" name="posicao_1" value="{{ jogador[1] }}" required><br>
+        Posição 2: <input type="text" name="posicao_2" value="{{ jogador[2] }}"><br>
+        Pontos: <input type="number" name="pontos" value="{{ jogador[3] }}" required><br>
+        <button type="submit">Salvar Alterações</button>
+    </form>
+    <a href="{{ url_for('index') }}">Voltar</a>
+</body>
+</html>
+
