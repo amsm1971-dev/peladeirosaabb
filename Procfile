@@ -1,1 +1,1 @@
-gunicorn futebol_sorteio:app
+gunicorn futebol_sorteio.py
