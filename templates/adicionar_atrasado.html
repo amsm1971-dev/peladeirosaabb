@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Adicionar Jogador Atrasado</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f9fc;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #ffcc00; /* Amarelo Banco do Brasil */
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        header img {
+            height: 50px;
+            margin-right: 15px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+            color: #003399; /* Azul Banco do Brasil */
+        }
+
+        main {
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        h2 {
+            color: #003399;
+            margin-bottom: 20px;
+        }
+
+        .jogador {
+            background-color: #ffffff;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .jogador input {
+            margin-right: 10px;
+        }
+
+        button {
+            background-color: #003399;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #002080;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #003399;
+            font-weight: bold;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 18px;
+            }
+
+            button {
+                width: 100%;
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='logo.jpg') }}" alt="Peladeiros AABB Curitiba">
+        <h1>Peladeiros AABB Curitiba</h1>
+    </header>
+
+    <main>
+        <h2>Adicionar Jogadores Atrasados</h2>
+
+        <form method="POST">
+            {% for jogador in jogadores %}
+                <div class="jogador">
+                    <input type="checkbox" name="jogadores_atrasados" value="{{ jogador[0] }}">
+                    {{ jogador[1] }}
+                </div>
+            {% endfor %}
+            <br>
+            <button type="submit">Adicionar Jogadores Selecionados</button>
+        </form>
+
+        <a href="{{ url_for('mostrar_resultado') }}">Voltar para o Resultado</a>
+    </main>
+</body>
+</html>

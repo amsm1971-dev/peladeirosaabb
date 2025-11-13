@@ -1,0 +1,29 @@
+### sorteio_jogo.html
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultado do Sorteio - Jogo {{ jogo_num }}</title>
+</head>
+<body>
+    <h2>Resultado do Sorteio - Jogo {{ jogo_num }}</h2>
+    <table border="1">
+        <tr><th>Time Azul</th><th>Pontos</th><th>Posição</th><th>Time Branco</th><th>Pontos</th></tr>
+        {% for azul, branco in times %}
+        <tr>
+            <td>{{ azul.nome }}</td><td>{{ azul.pontos }}</td><td>{{ azul.posicao }}</td>
+            <td>{{ branco.nome }}</td><td>{{ branco.pontos }}</td>
+        </tr>
+        {% endfor %}
+        <tr><td><b>Total</b></td><td><b>{{ total_azul }}</b></td><td></td><td><b>Total</b></td><td><b>{{ total_branco }}</b></td></tr>
+    </table>
+    {% if jogadores_restantes %}
+    <h3>Jogadores restantes para próximos jogos:</h3>
+    <ul>
+        {% for j in jogadores_restantes %}
+            <li>{{ j.nome }} - {{ j.pontos }} pontos ({{ j.posicao_1 }} / {{ j.posicao_2 }})</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</body>
+</html>

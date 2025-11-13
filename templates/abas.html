@@ -1,0 +1,31 @@
+### abas.html
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Jogos</title>
+    <style>
+        .tab { display: none; }
+        .tab.active { display: block; }
+    </style>
+    <script>
+        function showTab(index) {
+            document.querySelectorAll('.tab').forEach((el, i) => {
+                el.classList.toggle('active', i === index);
+            });
+        }
+    </script>
+</head>
+<body>
+    <h2>Resultados dos Jogos</h2>
+    {% for i in range(num_jogos) %}
+        <button onclick="showTab({{ i }})">Jogo {{ i + 1 }}</button>
+    {% endfor %}
+
+    {% for i, conteudo in enumerate(conteudos) %}
+        <div class="tab {% if i == 0 %}active{% endif %}">
+            {{ conteudo|safe }}
+        </div>
+    {% endfor %}
+</body>
+</html>
